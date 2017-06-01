@@ -15,8 +15,8 @@ namespace FrankiesDiscountAutos1.Account
             RegisterHyperLink.NavigateUrl = "Register";
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+            //OpenAuthLogin.ReturnUrl = Request.QueryString["~/Cars.aspx"];
+            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["~/Cars.aspx"]);
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
@@ -38,7 +38,8 @@ namespace FrankiesDiscountAutos1.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["~/Cars.aspx"], Response);
+                        Response.Redirect("~/Cars.aspx");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

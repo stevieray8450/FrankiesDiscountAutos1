@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="FrankiesDiscountAutos1.Account.Manage" %>
+﻿<%@ Page Title="Manage Website" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="FrankiesDiscountAutos1.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -76,5 +76,13 @@
             </div>
         </div>
     </div>
+
+       <div class="row">
+        <div class="col-md-12">
+            <div class="form-horizontal">
+                <h2>Database Administration Tools</h2>
+                    <dl><a href="CarsInsert.aspx">Post a new car</a></dl>
+                    <dl><a href="CarsEdit.aspx">Update car listings</a></dl>
+                <hr />
 
 </asp:Content>

@@ -7,17 +7,46 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FrankiesDiscountAutos1.Models;
+using SendGrid.Helpers;
+using System.Net;
+using System.Configuration;
+using System.Diagnostics;
+using System.Net.Http;
+using System.Net.Mail;
+using System.Net.Mime;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+
 
 namespace FrankiesDiscountAutos1
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+
+        public async Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            await configSendGridasync(message);
+        }
+
+        // Use NuGet to install SendGrid (Basic C# client lib) 
+        private async Task configSendGridasync(IdentityMessage message)
+        {
+
+            var apiKey = "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";
+            var client = new SendGridClient(apiKey);
+            var msg = new SendGridMessage()
+            {
+                From = new EmailAddress("stevieray8450@gmail.com", "Frankie's Discount Autos"),
+                Subject = message.Subject,
+                PlainTextContent = message.Body,
+                HtmlContent = message.Body
+            };
+
+            msg.AddTo(new EmailAddress(message.Destination));
+            var response = await client.SendEmailAsync(msg);
         }
     }
+
 
     public class SmsService : IIdentityMessageService
     {
@@ -73,7 +102,6 @@ namespace FrankiesDiscountAutos1
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-            manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
@@ -87,7 +115,8 @@ namespace FrankiesDiscountAutos1
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
-            base(userManager, authenticationManager) { }
+            base(userManager, authenticationManager)
+        { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
