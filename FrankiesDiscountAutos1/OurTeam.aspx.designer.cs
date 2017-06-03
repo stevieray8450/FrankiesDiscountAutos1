@@ -10,6 +10,6 @@
 namespace FrankiesDiscountAutos1 {
     
     
-    public partial class About {
+    public partial class _Default {
     }
 }

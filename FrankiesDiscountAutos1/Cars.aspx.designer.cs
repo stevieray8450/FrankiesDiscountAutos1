@@ -10,7 +10,7 @@
 namespace FrankiesDiscountAutos1 {
     
     
-    public partial class _Default {
+    public partial class Cars {
         
         /// <summary>
         /// GridView1 control.
@@ -28,6 +28,6 @@ namespace FrankiesDiscountAutos1 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        //protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

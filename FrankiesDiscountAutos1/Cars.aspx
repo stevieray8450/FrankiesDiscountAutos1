@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Our Cars" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="FrankiesDiscountAutos1._Default" %>
+﻿<%@ Page Title="Our Cars" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="FrankiesDiscountAutos1.Cars" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <customControls:Header runat="server" heading="Our Cars"></customControls:Header>
@@ -6,7 +6,11 @@
     <div class="row">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CarID" DataSourceID="SqlDataSource1" 
             EmptyDataText="There are no data records to display."
-            AllowSorting="True" CellPadding="3" CssClass="table-responsive table-hover">
+            AllowSorting="True" 
+            CssClass="table table-striped table-responsive" 
+            CellPadding="1" Width="747px" Height="399px" 
+            BackColor="White" BorderColor="#CCCCCC"
+            BorderStyle="None" BorderWidth="4px" ForeColor="Black" GridLines="Horizontal">
         <Columns>
             <asp:BoundField DataField="CarID" HeaderText="ID" SortExpression="CarID" />
             <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
@@ -17,6 +21,9 @@
             <asp:BoundField DataField="Comments" HeaderText="Comments" SortExpression="Comments" />
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
         </Columns>
+            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="Black" />
+
         </asp:GridView>
     </div>
 

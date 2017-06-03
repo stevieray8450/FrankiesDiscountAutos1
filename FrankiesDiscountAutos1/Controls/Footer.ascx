@@ -32,6 +32,6 @@
 
 <div class="navbar navbar-fixed-bottom">
     <footer class="container-fluid bg4 text-center">
-        <p>Website made by <a href="http://www.github.com/stevieray8450">Steve Boniface</a></p>
+        <p>Website made by <a href="http://www.github.com/stevieray8450" target="_blank">Steve Boniface</a></p>
     </footer>
 </div>

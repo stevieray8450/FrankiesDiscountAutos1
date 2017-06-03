@@ -17,9 +17,9 @@
 
           <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="CarID" 
             DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" Height="16px" Width="257px" AutoGenerateEditButton="True" DefaultMode="Edit"
-            BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table-responsive table-hover">
+            BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-striped table-responsive">
       <%--         OnItemCommand="DetailView_ItemCommand"--%>
-            <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="Black" />
+            <EditRowStyle Font-Bold="True" ForeColor="Black" />
             <Fields>
                 <asp:BoundField DataField="CarID" HeaderText="Car ID" InsertVisible="False" ReadOnly="True" SortExpression="CarID" />
 
@@ -131,6 +131,8 @@
             </UpdateParameters>
         </asp:SqlDataSource> 
 
+        <br /><br /><br /><br />
+        <hr /> 
        <customControls:Footer runat="server"></customControls:Footer>
 
 </asp:Content>
